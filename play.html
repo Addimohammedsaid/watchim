@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Website</title>
+    <title>Watchim.ml</title>
+
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
+    
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/nav.css" />
-    <link rel="stylesheet" href="css/slide.css" />
     <link rel="stylesheet" href="css/play.css" />
+
   </head>
   <body>
     <!-- NavBar Section-->
@@ -32,9 +34,9 @@
               <div>
                 <div>
                   <ul>
-                    <li><a href="Index.html"><i class="fas fa-home"></i> HOME</a></li>
-                    <li><a href="Index.html"><i class="fas fa-list"></i> BROWSE</a></li>
-                    <li><a href="Popular.html"><i class="fas fa-fire"></i> POPULAR</a></li>   
+                    <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="browse.html"><i class="fas fa-list"></i> BROWSE</a></li>
+                    <li><a href="popular.html"><i class="fas fa-fire"></i> POPULAR</a></li>   
                   </ul>
                 </div>
               </div>
@@ -45,50 +47,73 @@
         <div class="hide-mobile show-desktop desktop-nav">
           <nav>
             <ul>
-                <li><a href="Index.html"><i class="fas fa-home"></i> HOME</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
                 <li>
                   <div class="dropdown">
                     <button class="dropdown__hover"><i class="fas fa-list"></i> BROWSE</button>
                     <div class="dropdown__menu">
-                      <a href="#">Lasts</a>
-                      <a href="#">Season</a>
-                      <a href="#">Anime List</a>
+                      <a href="lasts.html">Lasts</a>
+                      <a href="season.html">Season</a>
+                      <a href="list.html">Anime List</a>
                     </div> 
                   </div>
                 </li>
-                <li><a href="Popular.html"><i class="fas fa-fire"></i> POPULAR</a></li>
+                <li><a href="popular.html"><i class="fas fa-fire"></i> POPULAR</a></li>
             </ul>
           </nav>
         </div>
       </header>
     </section>
 
-    <div class="titre">
-        <h3>Episod 105 : les Plaies du coeur</h3>
-        <h1>Boruto - Naruto Next Generation</h1>
-    </div>
-
+    <!-- Aside Section --> 
     <aside>
-      <div class="show-desktop hide-mobile">
-        <div class="anime-info">
-          <h1>Anime Info</h1>
-        </div>    
-        <div class="navigation">
-            <a id="prev"><i class="fas fa-arrow-right"></i>Next Episode 08</a>
-            <a id="next"><i class="fas fa-arrow-left"></i>Previous Episode 06</a>
-        </div>
-      </div>
+           <div id="ad1">
+           </div>
+           <div class="anime-info">
+              <h1>Anime Info</h1>
+            </div>    
+            <div class="navigation">                
+                <a id="prev"><i class="fas fa-arrow-left show-desktop hide-mobile"></i>Previous : Episode 06</a>
+                <a id="next"><i class="fas fa-arrow-right show-desktop hide-mobile "></i>Next : Episode 08</a>
+            </div>
     </aside>
 
-      
-    <main class="material">
-        <div class="screen">
-        <IFRAME class="material" SRC="https://www.mp4upload.com/embed-q1htgrap8lvf.html" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO allowfullscreen></IFRAME>
-    </div>
-  </main>
-    
-    <footer class="footer">
+   <!-- Main Section -->         
+    <main>
+      <!-- Recent Upload Section-->
+      <section class="Play material">
+            <h3 class="title">Now  Watching</h3>   
+              <div class="low-title">
+              <div class="img-cover">
+              <img src="img/Play/Cover/Naruto_Movie_1.jpg"> 
+              </div>  
+              <div class="addition">
+              <h3>Naruto The Movie : <span>Lorem ipsum dolor sit.</span></h3>        
+              </div>
+            </div>  
+              <iframe 
+              src="https://openload.co/embed/hJqh3HjDnV8/%255bDB%255d_Naruto_Movie_%255bD367824A%255d.avi.mp4" scrolling="no" frameborder="0" width="700" height="430" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
+              </iframe>
+      </section>
+      <section class="Download">
+       <h3>Login To Download</h3>
+      </section>
+    </main>
 
+      <div class="ad">
+
+      </div>
+
+    <footer>
+      <div class="footer">
+      <div class="container">
+      <a href="#"><i class="fab fa-twitter-square"></i></a>
+      <a href="#"><i class="fab fa-facebook-square"></i></a>
+      <a href="#"><i class="fab fa-google-plus-square"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <span>Copyright@2019</span>
+      </div>
     </footer>
 
     <script src="js/app.js"></script>

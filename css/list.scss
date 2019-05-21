@@ -69,6 +69,10 @@ main {
       "footer footer";
   }
 
+  main {
+    display: block;
+  }
+
   section,
   aside {
     grid-area: aside;

@@ -68,6 +68,9 @@ main .list-section ul li:hover {
         grid-template-columns: 20% auto;
         grid-template-areas: "header header" "aside main" "footer footer";
   }
+  main {
+    display: block;
+  }
   section,
   aside {
     -ms-grid-row: 2;
