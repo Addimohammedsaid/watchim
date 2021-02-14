@@ -1,0 +1,88 @@
+<section id="add-anime-form" class="col-2">
+    <form [formGroup]="episodeForm" (ngSubmit)="updateEpisode()">  
+      <div class="form-box">      
+        <label for="name">Episode Title</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ex : Boruto"
+          name="name"
+          [value]="episode.name"
+          formControlName="name"
+          [ngClass]="{
+            'form-success': episodeForm.get('name').valid,
+            'form-danger':
+              !episodeForm.get('name').valid && episodeForm.get('name').dirty
+          }"
+        />
+      </div>    
+      <div class="col-2">
+        <div class="form-box">
+          <label for="seasons">
+            Episode Number</label>
+          <input
+          min="1"
+            type="number"
+            class="form-control"           
+            name="episode"
+            formControlName="episode"
+          />
+        </div>   
+        <div class="form-box">
+          <label for="seasons">
+            Season</label>
+          <input
+          min="1"
+            type="number"
+            class="form-control"          
+            name="season"
+            formControlName="season"
+          />
+        </div>        
+      </div>   
+      <div class="form-box">
+        <label for="description">Description</label>
+        <textarea
+          formControlName="description"
+          type="text"
+          minlength="10"
+          class="form-control"        
+          name="description"
+        ></textarea>
+      </div>
+      <div class="form-box">
+        <label for="imageUrl">ImageUrl</label>
+        <input
+          formControlName="imageUrl"
+          type="text"
+          class="form-control"
+          placeholder=""
+          name="imageUrl"          
+        />
+      </div>
+      <div class="form-box">
+        <label for="StreamingUrl">StreamingUrl</label>
+        <input
+          formControlName="streamingUrl"
+          type="text"
+          class="form-control"
+          placeholder=""
+          name="StreamingUrl"        
+        />
+      </div>
+       <div class="form-box">
+      <button type="submit" class="btn m-y-20">Submit</button>
+      <button type="submit" class="btn btn-no" (click)="deleteEpisode()">Delete</button>
+      </div>
+    </form>
+  
+    <div class="render">
+      <div class="card">
+        <div class="card-thumbnail">
+          <img [src]="episodeForm.value.imageUrl" />
+        </div>
+        <div class="card-title">{{ episodeForm.value.name }}</div>
+      </div>
+    </div>
+  </section>
+  

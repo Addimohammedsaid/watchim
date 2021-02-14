@@ -1,0 +1,59 @@
+<!-- <app-showbox [imageUrl]="imageUrl" [subTitle]="title">
+
+</app-showbox> -->
+
+<main>
+    <aside>
+        <ng-template #loading>
+            <app-loading-spin></app-loading-spin>
+        </ng-template>
+
+        <div *ngIf="categories$ | async as categories ; else loading" class="content show-desktop hide-mobile">
+            <h2>Categories</h2>
+            <ul>
+                <li [routerLink]="['/streaming/list']"><label class="container">
+                    <input type="radio" name="category" id="category" value="" checked >
+                    <span class="checkmark"></span>
+                    All</label></li>
+            </ul>
+            <ul *ngFor="let category of categories">
+                <li [routerLink]="['/streaming/list']" [queryParams]="{ category: category.name, letter : letter }">                    
+                    <label class="container">
+                    <input type="radio" name="category" id="category">
+                    <span class="checkmark"></span>
+                    {{ category.name }}</label>
+                </li>
+            </ul>
+        </div>        
+    </aside>
+
+    <section id="animeList">
+        <div class="filter">
+            <ul>
+                <li *ngFor="let l of alphabet" ><a [routerLink]="['/streaming/list']" [queryParams]="{letter : l, category : category?.name}">{{l}}</a></li>            
+            </ul>                
+            <!-- <li><a (click)="filter(null)">ALL</a></li>          -->
+        </div>          
+    
+        <ng-template #loading>
+            <app-loading-spin></app-loading-spin>
+        </ng-template>
+    
+        <div *ngIf="animeList; else loading">
+            <div class="list"  *ngFor="let anime of filteredAnime">                       
+                <details [open]>
+                    <summary class="list-element">{{anime.name}}</summary> 
+                    <article [routerLink]="['/streaming/anime', anime.name]"(click)="passAnime(anime)">
+                        <div class="body">
+                            <h3>{{anime.name}}</h3>
+                            <p>{{anime.description}}</p>
+                        </div>
+                        <div class="thumbnail">
+                            <img [src]="anime.imageUrl" [alt]="anime.name">
+                        </div>
+                    </article>
+                </details>
+            </div>
+        </div>      
+    </section>
+</main>

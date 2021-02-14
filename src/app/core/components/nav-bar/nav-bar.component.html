@@ -1,0 +1,43 @@
+<header>
+  <nav>    
+    <input type="checkbox" class="toggler" />      
+    <div class="hamburger show-mobile hide-desktop">
+        <div></div>      
+    </div>
+    <ul>
+      <li><a [routerLink]="['/home']" routerLinkActive="is-active">Home</a></li>
+      <li><a [routerLink]="['/streaming/movies']" routerLinkActive="is-active">Movies</a></li>
+      <li><a [routerLink]="['/streaming/list']" routerLinkActive="is-active">Anime List</a></li>
+      <ng-template #anonymUser>
+        <li><a [routerLink]="['/login']" routerLinkActive="is-active">Login</a></li>
+      </ng-template>
+      <li *ngIf="userApp; else anonymUser">
+        <div class="dropdown">
+          <a href="">{{ userApp.username }}</a>
+          <div class="dropdown-content">   
+            <a [routerLink]="['admin/trends']">
+              Trends List 
+            </a>            
+            <a [routerLink]="['admin/add/anime']">
+              Add Anime 
+            </a>
+          <li *ngIf="userApp.isAdmin;">
+            <a [routerLink]="['admin/add/episode']">
+              Add Episode
+            </a>
+          </li>
+          <li *ngIf="userApp.isAdmin;">
+            <a [routerLink]="['admin/add/movie']">
+              Add Movie
+            </a>
+          </li>
+          <li *ngIf="userApp.isAdmin;">
+            <a (click)="logout()">Disconnect</a>       
+          </li>
+          </div>
+        </div>
+      </li>
+    </ul>    
+  </nav>
+  <div class="logo" [routerLink]="['/']">Royal Anime</div>
+</header>

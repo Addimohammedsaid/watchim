@@ -1,0 +1,76 @@
+<app-showbox
+[imageUrl] = "imageUrl"
+[title] = "titleShowbox"
+[subTitle] = "subTitleShowbox"
+></app-showbox>
+
+<section id="search">    
+  <app-type-ahead></app-type-ahead>
+</section>
+
+<main>
+  
+  <section id="trending-list">    
+    <div class="section-header">
+      <h2 class="title">Trending</h2>      
+    </div>
+
+    <ng-template #loading>
+      <app-loading-spin></app-loading-spin>
+    </ng-template>
+
+    <div class="container" *ngIf="trendList$ | async as trendList; else loading">
+      <a class="icon"(click)="slide(-1)">&#10094;</a>      
+    <div class="slide" id="slide">
+
+      <div class="card" *ngFor="let trend of trendList">
+          <div class="card-thumbnail" (click)="passAnime(trend)"  [routerLink]="['/streaming/anime', trend.name]" >
+            <img [src]="trend.imageUrl" [alt]="trend.name" loading="lazy" />
+            <fa class="play-button" name="play-circle"></fa>
+          </div>        
+          <div class="card-title">          
+            <span>{{ trend?.name }}</span>
+        </div>
+        <div *ngIf="userApp" class="edit" [routerLink]="['/admin/edit/anime']" (click)="passAnime(trend)" >Edit</div>
+      </div>   
+  </div>
+  <a class="icon" (click)="slide(1)">&#10095;</a>
+  </div>
+  </section>    
+
+  <section id="lastAdded">        
+    <div class="section-header">
+      <h2 class="title">Last Added</h2>      
+    </div>
+
+    <ng-template #loading>
+      <app-loading-spin></app-loading-spin>
+    </ng-template>
+
+    <div class="container" *ngIf="lastEpisodesList$ | async as lastEpisodes ; else loading">           
+      <div class="prev"><a class="icon" (click)="prevPage(lastEpisodes[0])">&#10094;</a></div>
+      <div class="cards">
+        <div class="card" *ngFor="let episode of lastEpisodes">
+            <div class="card-thumbnail" (click) = "adsLink()"
+              [routerLink]="['/streaming/watch', episode.anime, episode.season ,episode.episode]">
+              <img [src]="episode.imageUrl" [alt]="episode.anime" loading="lazy"/>
+              <fa class="play-button" name="play-circle"></fa>          
+            </div>        
+            <div class="sub-title">
+              Episode : {{ episode?.episode }}
+            </div>
+            <div class="card-title">          
+              <span>{{ episode?.anime }}</span>
+            </div>      
+            <div *ngIf="userApp" class="edit" [routerLink]="['/admin/edit']" (click)="passEpisode(episode)">Edit</div>                          
+          </div>
+        </div>
+        <div class="next"><a class="icon" (click)="nextPage(lastEpisodes[lastEpisodes?.length-1])">&#10095;</a></div>
+      </div>         
+  </section>  
+</main>
+
+<iframe data-aa="1555865" src="//acceptable.a-ads.com/1555865" scrolling="no" style="border:0px; padding:0; width:100%; height:100%; overflow:hidden" allowtransparency="true"></iframe>
+
+
+

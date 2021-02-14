@@ -1,0 +1,27 @@
+<section id="add-anime-form" class="col-2">    
+    <form *ngIf="animeList" [formGroup]="trendForm" (ngSubmit)="submit()">      
+        <div class="form-box">
+        <label for="anime">Anime</label>
+        <select class="form-control" formControlName="index">
+          <option value=""></option>
+          <option *ngFor="let anime of animeList; let i = index" [value]="i">
+            {{ anime.name }}
+          </option>
+        </select>
+      </div>    
+
+       <div class="form-box">
+         <button type="submit" class="btn" >Add</button>
+      </div>
+    </form>
+
+    <div>
+        <h1>Trends List :</h1>
+        <div *ngFor="let trend of trendsList$ | async">
+            <p>{{ trend.name }}</p>
+            <button (click)="delete(trend)">Delete</button>
+        </div>
+    </div>
+
+</section>
+  

@@ -1,0 +1,64 @@
+<section id="add-anime-form" class="col-2">
+  <form [formGroup]="movieForm" (ngSubmit)="addAnime()">
+    <div class="form-box">
+      <label for="name">Name </label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ex : Banana Fish"
+        name="name"
+        formControlName="name"
+        [ngClass]="{
+          'form-success': movieForm.get('name').valid,
+          'form-danger':
+            !movieForm.get('name').valid && movieForm.get('name').dirty
+        }"
+      />
+    </div>
+    <div class="col-2">    
+      <div class="form-box">
+        <label for="category">Category</label>
+        <select class="form-control" formControlName="category">
+          <option value=""></option>
+          <option *ngFor="let category of categories$" [value]="category.name">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-box">
+      <label for="description">Description</label>
+      <textarea
+        formControlName="description"
+        type="text"        
+        minlength="20"
+        class="form-control"
+        value="ex : action anime...."
+        name="description"
+      ></textarea>
+    </div>
+    <div class="form-box">
+      <label for="imageUrl">ImageUrl</label>
+      <input
+        formControlName="imageUrl"
+        type="text"
+        class="form-control"
+        name="imageUrl"
+      />
+    </div>
+    <div class="form-box">      
+    <button type="submit" class="btn">Submit</button>
+  </div>
+  </form>
+
+  <!-- <app-card [anime]="anime"></app-card> -->
+
+  <div class="render">
+    <div class="card">
+      <div class="card-thumbnail">
+        <img [src]="movieForm.value.imageUrl" />
+      </div>
+      <div class="card-title">{{ movieForm.value.name }}</div>
+    </div>
+  </div>
+</section>

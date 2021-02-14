@@ -1,0 +1,9 @@
+<form>
+  <div class="form-box">
+    <input class="form-control"  type="text" placeholder="Search.." name="search" (keydown)="onkeyup($event)" placeholder="Search For Your Favorite Anime...." autocomplete="off">
+    <button class="btn btn-round"><fa name="search"></fa></button>
+  </div>
+    <ng-container *ngFor="let anime of results | async">          
+        <div class="suggestions" (click)="passAnime(anime)" [routerLink]="['/anime', anime.name]">{{ anime.name }}</div>      
+  </ng-container>
+</form>      

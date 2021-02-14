@@ -1,0 +1,114 @@
+/*================ Generale ==================*/
+.anime-info {
+  top: 20vh;
+  left: 10%;
+  position: absolute;     
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.details {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+/*================ Main Section ================*/
+main {
+  padding: 40px;
+  min-height: 100vh;
+}
+
+#about-anime .thumbnail {    
+  top: -100px;    
+  position: relative;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.thumbnail img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.body .description {  
+  padding-bottom: 40px;
+  text-align: justify;
+  font-size: 1.2rem;
+  line-height: 140%;
+}
+
+.season-title {  
+  width: 100%;
+  padding-bottom: 20px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.season-title:after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  height: 5px;
+  border-radius: 1px;
+  background-color: var(--secondary-color);
+}
+
+.cards {
+  grid-gap: 40px;
+}
+
+@media screen and (min-width: 756px) {   
+  /*================ Generale  ==================*/ 
+  .col-2 {
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1rem;
+  }
+
+  .anime-info {
+    top: 50vh;
+    left: 60%;
+    transform: translateX(-60%);
+    position: absolute;         
+  }
+
+  .title {
+    font-size: 5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 140%;
+  }
+
+  .details {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  /*================ Anime Section  ==================*/ 
+  #about-anime .thumbnail {
+    height: 800px;   
+    width: 100%;     
+    top: -400px;    
+  }
+
+  .body {
+    padding: 40px;
+  }
+
+  .content{
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+@media screen and (min-width: 375px) {   
+
+}

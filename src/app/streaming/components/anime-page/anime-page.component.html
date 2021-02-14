@@ -1,0 +1,42 @@
+<app-showbox [imageUrl] = "anime.imageUrl"></app-showbox>
+
+<div class="anime-info">
+  <div class="title">{{ anime.name}}</div>
+  <div class="details">{{ anime.category}}</div>
+</div>
+
+<main>
+    <section class="col-2" id="about-anime" >        
+            <div class="thumbnail">
+                <img [src]="anime.imageUrl">
+            </div>            
+
+            <div class="body">  
+                <div class="description">{{anime.description}}</div>                  
+                <ng-template #loading>
+                  <app-loading-spin></app-loading-spin>
+                </ng-template>
+
+                <div class="cards" *ngIf="episodes$ | async as episodes; else loading">                  
+
+                  <ng-container *ngFor="let episode of episodes">
+
+                    <div *ngIf="season != episode.season" class="content">                    
+                      <h1 class="season-title">Season {{newSeason(episode.season)}}</h1>                                        
+                    </div>                                                                                                   
+
+                    <div class="card">                            
+                      <div class="card-thumbnail" (click) = "adsLink()"
+                      [routerLink]="['/streaming/watch', episode.anime, episode.season ,episode.episode]" >
+                      <img [src]="episode.imageUrl" loading="lazy" />
+                      </div>
+                      <div class="card-title">Episode {{ episode?.episode }}</div>
+                      
+                      <div *ngIf="userApp"  class="edit" routerLink="/admin/edit/anime" (click)="passEpisode(episode)">Edit</div>        
+                    </div>                      
+                </ng-container> 
+
+              </div>           
+            </div>                          
+    </section>         
+</main>

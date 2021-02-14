@@ -1,0 +1,29 @@
+<main style="min-height : 100vh;">
+    <ng-container *ngIf="episode$ | async as episode">        
+    <div class="route">
+        Home &#8250; {{ episode[0].anime }} &#8250; episode {{episode[0].episode }} &#8250; {{ episode[0].name }}
+    </div>
+
+    <div class="navigation">
+        <button class="btn btn-no previous" [routerLink]="['/streaming/watch', episode[0].anime, episode[0].season ,episode[0].episode-1]">Previous</button>
+        <button class="btn next"
+        [routerLink]="['/streaming/watch', episode[0].anime, episode[0].season ,episode[0].episode+1]"
+        >Next</button>        
+    </div>
+
+    <app-video-player [episodeUrl]="episode[0].streamingUrl"></app-video-player>
+
+    <div class="info">    
+        <h1 class="sub-title">{{ episode[0].anime }} - episode {{ episode[0].episode }}</h1>
+        <h1 class="title">{{ episode[0].name }}</h1>
+        <div class="description"  *ngIf="episode[0].description">
+            Resume : {{ episode[0].description }}
+        </div>
+    </div>
+
+    <section class="comments">
+        <disqus [identifier]="episode[0].anime+episode[0].episode"></disqus>
+    </section>
+
+</ng-container>
+</main>

@@ -1,0 +1,163 @@
+/* ============= Search Section ============== */
+#search {
+  width: 60px; 
+  width: 400px; 
+  margin: 20px auto;    
+  background-color: transparent;
+  transition: all 400ms linear 100ms;
+  cursor: pointer;
+}
+
+#search:hover{
+  width: 500px;
+}
+
+/*================== Main ====================== */
+main {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/*================== Sections ====================== */
+#lastAdded,
+#trending-list {      
+  padding: 40px;  
+}
+
+.element {
+  pointer-events: none;
+}
+
+#lastAdded{
+  min-height: 100vh;
+}
+
+.card:hover .play-button {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.icon:hover{
+  color: rgb(206, 206, 206);
+}
+
+/*================ Trending Section ==================*/
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;    
+}
+
+.slide {
+  width: 100%;
+  height: 400px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slide::-webkit-scrollbar {
+  display: none;
+}
+
+.slide .card {    
+  height: 100%;
+  width: 100%;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.slide .card-title {
+  display: block;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.slide .sub-title {  
+  border: none;
+  top: 70%;
+  left: 50%;  
+  transform: translate(-50%,-0%);  
+  font-size: 2rem;  
+}
+
+.slide .card .card-thumbnail:after {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.slide .card:hover .card-thumbnail:after {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#trending-list .icon {
+  padding: 0 20px;
+}
+
+
+/* ========== Last episodes list ========== */
+#lastAdded .next {  
+  padding-left: 30px;
+}
+
+#lastAdded .prev {   
+  padding-right: 30px;
+}
+
+#lastAdded .icon {  
+  font-size: 4rem;
+}
+
+
+@media screen and (min-width: 756px) {
+  /* ============= Show Box Section ============== */
+  #search {
+  position: absolute;
+  right: 50%;
+  top: 75vh;  
+  border-radius: 5px 5px 0px 0px; 
+  }  
+
+  #search .title {
+    color: #f3f3f3;
+    text-align: left;
+    font-size: 1rem;    
+    font-weight: 400;
+    text-transform: uppercase;    
+  }
+}
+
+
+@media screen and (max-width: 400px) {   
+
+  #lastAdded,
+  #trending-list {
+  padding: 10px;
+  }
+
+  #trending-list .slide { 
+    height: 200px;
+  }
+
+  #lastAdded .container {
+    padding: 10px;
+    flex-direction: column;
+  }
+}

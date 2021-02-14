@@ -1,0 +1,29 @@
+<section id="login">
+  <!-- <div class="title">Bienvenue sur Hirfa</div> -->
+  <div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="loginWithEmailAndPassword()">
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" class="form-control" formControlName="email" />
+      </div>
+      <div class="form-group">
+        <label for="">password</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="password"
+          type="password"
+        />
+      </div>
+      <input type="submit" class="btn" value="Connect" />
+      <div class="error" *ngIf="error">{{ error }}</div>
+    </form>    
+  </div>
+  <!-- <p style="margin-top: 50px;">
+    Vous n'avez pas de compte ?<strong
+      class="high-light"
+      [routerLink]="['/register']"
+      >Inscrivez-vous.</strong
+    >
+  </p> -->
+</section>

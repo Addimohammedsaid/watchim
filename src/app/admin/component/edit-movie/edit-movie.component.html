@@ -1,0 +1,64 @@
+<section id="add-anime-form" class="col-2">
+    <form [formGroup]="movieForm" (ngSubmit)="updateEpisode()">
+      <div class="form-box">
+        <label for="name">Name </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ex : Banana Fish"
+          name="name"
+          formControlName="name"
+          [value]="episode.name"
+          [ngClass]="{
+            'form-success': movieForm.get('name').valid,
+            'form-danger':
+              !movieForm.get('name').valid && movieForm.get('name').dirty
+          }"
+        />
+      </div>
+      <div class="form-box">
+        <label for="description">Description</label>
+        <textarea
+          formControlName="description"
+          type="text"        
+          minlength="20"
+          class="form-control"
+          [value]="episode.description"
+          name="description"
+        ></textarea>
+      </div>
+      <div class="form-box">
+        <label for="imageUrl">ImageUrl</label>
+        <input
+          formControlName="imageUrl"
+          type="text"
+          class="form-control"
+          name="imageUrl"
+        />
+      </div>
+      <div class="form-box">
+        <label for="StreamingUrl">StreamingUrl</label>
+        <input
+          formControlName="streamingUrl"
+          type="text"
+          class="form-control"
+          placeholder=""
+          name="StreamingUrl"
+        />
+      </div>
+      <div class="form-box">
+        <button type="submit" class="btn m-y-20">Submit</button>
+        <button type="submit" class="btn btn-no" (click)="deleteEpisode()">Delete</button>
+        </div>
+    </form>      
+  
+    <div class="render">
+      <div class="card">
+        <div class="card-thumbnail">
+          <img [src]="movieForm.value.imageUrl" />
+        </div>
+        <div class="card-title">{{ movieForm.value.name }}</div>
+      </div>
+    </div>
+  </section>
+  

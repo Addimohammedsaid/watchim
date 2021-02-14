@@ -1,0 +1,11 @@
+.holds-the-iframe {
+  height: 80vh;
+  background-image: url(https://www.askideas.com/media/13/Please-Wait-Animated-Text.gif);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+iframe {
+  aspect-ratio: 16 / 9;
+}

@@ -1,0 +1,221 @@
+/*================ Main ==================*/
+main{  
+  width: 100%;
+  min-height: 100vh;
+  padding: 15px;
+  padding-top: 50px;
+  display: grid;    
+  grid-template-columns: 1fr; 
+}
+
+/*================ Aside Section ==================*/
+aside {    
+  color: var(--primary-color);
+}
+
+aside .content {
+  padding: 20px;
+  background-color: transparent;  
+}
+
+aside ul { 
+  padding: 4px;
+}
+
+aside ul li {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+aside ul li a{
+  color: white;
+}
+
+aside h2{  
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 80px;
+}
+
+/*================ List Section ==================*/
+#animeList{ 
+  width: 80%;  
+  margin: auto;
+  min-height: 100vh;  
+}
+
+/*================ ABC Filter Section ==================*/
+.filter{
+  padding: 20px 0;
+  width: 100%;
+  margin: 0 auto; 
+}
+
+.filter ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;  
+  padding: 20px;
+  background-color: rgb(233, 233, 233);
+}
+
+.filter ul li {
+  list-style: none;
+  padding-left: 10px;
+  color: white;
+}
+
+.filter ul li a{  
+  cursor: pointer;
+  color: var(--primary-color);  
+}
+
+/*================ List Anime Section ==================*/
+.list{    
+  display: flex;
+  flex-direction: column;
+}
+ 
+.list-element {      
+    width: 100%;            
+    padding: 15px 20px;          
+    font-size: 1.2rem;
+    text-align: left;
+    color: var(--primary-color);       
+    cursor: pointer;
+}
+
+.list-element:hover{
+  color: rgb(110, 110, 110);
+}
+
+details article {  
+  display: flex;
+  flex-direction: column;
+  height: 400px;  
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+details article .body{   
+  flex: 2;   
+  padding-right: 20px;
+  min-width : 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+details article .body h3 {   
+  line-height: 50px;
+}
+
+details article .body p{
+  line-height: 140%; 
+  height: 50px;
+
+}
+
+
+details article .thumbnail {
+  flex: 1;    
+  flex-shrink: 0;  
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+img {  
+  object-fit: cover;
+  height: 100%;
+  width: 100%;      
+}
+
+details[open] article{
+  margin: 20px 0;
+}
+
+
+/*================ Check Box Elements ==================*/
+/* The container */
+.container {
+  outline: none;
+  display: block;  
+  justify-content: space-between;
+  position: relative;
+  padding-left: 35px;  
+  cursor: pointer;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 20%;
+  top: 40%;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg) translate(-50%,-50%); 
+}
+
+
+@media screen and (min-width: 756px) {
+  
+  main {   
+    padding: 80px;
+    padding-top: 200px;
+    grid-template-columns: 1fr 3fr;  
+  }
+
+  details article {  
+    display: flex;    
+    padding: 20px;
+    flex-direction: row;
+  }
+  
+
+}

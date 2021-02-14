@@ -1,0 +1,51 @@
+.form-box {  
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.btn-round{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  position: absolute;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: red;
+  top: -15px;
+  right: -10px;  
+  width: 50px;
+  height: 50px; 
+  padding: 40px; 
+  font-size: 2rem;
+  border-radius: 50%;  
+  flex: 1;
+  box-shadow: 0.5px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+input {
+  margin: 0;  
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;  
+}
+
+.suggestions {
+  position: relative;
+  top: -10px;
+  padding: 10px;
+  width: 400px;
+  background: white;
+  cursor: pointer;  
+  z-index: 0;
+}
+
+.suggestions:hover {
+  background-color: red;
+  color: white;
+}
