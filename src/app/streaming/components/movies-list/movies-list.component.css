@@ -24,10 +24,14 @@
   color: white;  
 }
 /* ============= Movies Section ============== */  
-#movieList {
+#movieList {        
   min-height: 100vh;
   padding: 40px;
-  position: relative;   
+  position: relative; 
+    /* overflow-y: scroll;
+  width: 80%;
+  margin: auto;
+  height: 100vh;   */
 }
 
 /* .card::before{

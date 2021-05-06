@@ -1,75 +1,12 @@
-/* ========== Request Anime ========== */
-#request-anime {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px;
-}
-
-#request-anime .title {
-  font-size: 3rem;
-  font-style: italic;
-  text-align: center;
-  font-weight: 400;
-  text-transform: uppercase;
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.col-2 {
-  grid-template-columns: 1fr;    
-}
-
-#request-anime form {
-  padding: 0px;
-}
-
-#request-anime form input {
-  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.3);
-}
-
-/* ============================== */
-#contact {
+/* Mobile first */
+footer {
+  padding: 20px;
+  background-color: #333333;
   display: flex;
-  justify-content: space-around;  
-  background: lightgray;
-  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
-
-#contact .section-title {
-  font-size: 1.6rem;
-  font-weight: 500;
-  margin: 5px 0;
-  text-transform: uppercase;
-}
-
-#contact .section-body {
-  font-size: 1rem;
-}
-
-#contact form {    
-  width: 100%;
-  max-height: 80px;
-  display: flex;
-  flex-direction: row;
-}
-
-#contact form input {
-  border-left: 1px solid #6d6c6c;
-  border-top: 1px solid #6d6c6c;
-  border-bottom: 1px solid #6d6c6c;
-  border-radius: 5px 0px 0px 5px;
-}
-
-#contact button {
-  width: 40%;
-  margin: 10px 0;
-}
-
-#contact .btn {
-  border-radius: 0px 5px 5px 0px;
-}
-/* ============================== */
 
 footer Fa {
   font-size: 30px;
@@ -83,52 +20,27 @@ footer Fa:hover {
 }
 
 footer p {
+  text-align: center;
   font-size: 14px;
   color: #757575;
 }
 
-footer {
-  width: 100%;
-  padding: 50px;
-  background-color: #333333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
 footer .links {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  padding: 40px;
-  min-width: 350px;
-  margin-bottom: 20px;
   position: relative;
 }
 
 footer .links:after {
   content: "";
   position: absolute;
-  bottom: 30px;
-  left: -10%;
-  width: 120%;
+  bottom: 10px;
+  width: 90%;
+  margin: auto;
   height: 1.5px;
   background-color: #6b6b6b;
 }
-
-@media screen and (min-width: 756px) {
-  /* ============= Request Section ============== */
-  #request-anime {
-    width: 70%;
-  }
-
-  #request-anime form {
-    padding: 40px;
-  }
-
-  .col-2 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-

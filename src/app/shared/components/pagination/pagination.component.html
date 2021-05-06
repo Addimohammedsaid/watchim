@@ -1,0 +1,10 @@
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a
+    *ngFor="let page of pageSizeArray"
+    [class]="currentPage === page ? 'active' : ''"
+    (click)="paginate(page)"
+    >{{ page }}</a
+  >
+  <a href="#">&raquo;</a>
+</div>

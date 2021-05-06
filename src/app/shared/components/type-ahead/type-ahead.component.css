@@ -1,10 +1,10 @@
-.form-box {  
+.form-box {
   cursor: pointer;
   position: relative;
   z-index: 10;
 }
 
-.btn-round{
+.btn-round {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,35 +13,35 @@
   font-weight: bold;
   text-transform: uppercase;
   background-color: red;
-  top: -15px;
-  right: -10px;  
-  width: 50px;
-  height: 50px; 
-  padding: 40px; 
-  font-size: 2rem;
-  border-radius: 50%;  
+  top: -5px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  padding: 30px;
+  font-size: 1.4rem;
+  border-radius: 50%;
   flex: 1;
   box-shadow: 0.5px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 input {
-  margin: 0;  
+  margin: 0;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   text-align: left;
   font-size: 1rem;
   font-style: italic;
-  font-weight: 400;  
+  font-weight: 400;
 }
 
 .suggestions {
-  position: relative;
-  top: -10px;
+  position: absolute;
+  bottom: 0px;
   padding: 10px;
-  width: 400px;
+  width: 80%;
   background: white;
-  cursor: pointer;  
+  cursor: pointer;
   z-index: 0;
 }
 

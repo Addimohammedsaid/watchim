@@ -1,69 +1,74 @@
-/* =========== Mobile ============== */
-  #show-box {
-    height: 500px;
-    background-color: var(--main-bg-color);  
-    position: relative;
-  }
-  
-  .bg-image {
-    height: 100%;      
-    position: relative;
-  }
-  
-  .bg-image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  .bg-image:after {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
-  #show-box .front-text {     
-    position: absolute;
-    bottom: 5%;
-    left: 5%;    
-    color: white; 
-    padding: 40px;
-    background-color: transparent;
-  }
-  
-  #show-box .front-text .title {
-    font-size: 4rem;
-    margin: 5px 0;
-    font-style: italic;
-    text-transform: uppercase;
-  }
-  
-  #show-box .front-text .body {    
-    font-size: 1.4rem;
-  }
-  
-/* ============= Desktop ============== */
-  @media screen and (min-width: 756px) {
-    #show-box {
-      height: 90vh;
-    }
-  
-    #show-box .front-text {      
-      top: 60%;
-      left: 5%;
-      transform: translateY(-60%);         
-    }
+/* =========== Mobile first ============== */
+#show-box {
+  height: 500px;
+  background-color: var(--main-bg-color);
+  position: relative;
+}
 
-    #show-box .front-text .title {
-        font-size: 6.5rem;       
-    }
-      
-    #show-box .front-text .body {
-        font-size: 3rem;
-    }
-      
+.bg-image {
+  height: 100%;
+  position: relative;
+}
+
+.bg-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.bg-image:after {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#show-box .front-text {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: white;
+  background-color: transparent;
+}
+
+#show-box .front-text .title {
+  font-size: 4rem;
+  margin: 5px 0;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+#show-box .front-text .body {
+  font-size: 1.4rem;
+}
+
+/* ============= Desktop ============== */
+@media screen and (min-width: 992px) {
+  #show-box {
+    height: 90vh;
+  }
+
+  #show-box .front-text {
+    top: 60%;
+    left: 5%;
+    transform: translateY(-60%);
+  }
+
+  #show-box .front-text .title {
+    font-size: 6.5rem;
+  }
+
+  #show-box .front-text .body {
+    font-size: 3rem;
+  }
+}
+
+/* ============= Tablet ============== */
+@media screen and (min-width: 587px) {
+  #show-box {
+    height: 600px;
+  }
 }

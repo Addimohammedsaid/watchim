@@ -2,7 +2,7 @@ import { MovieService } from 'src/app/shared/services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { UserApp } from 'src/app/shared/models/user.model';
+import { UserModel } from 'src/app/shared/models/user.model';
 import { Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +19,7 @@ export class AnimePageComponent implements OnInit {
   season:number = 0;  
 
    // User model
-   userApp: UserApp;
+   user: UserModel;
    sub : Subscription;
 
    // Ads
@@ -29,7 +29,7 @@ export class AnimePageComponent implements OnInit {
 
   ngOnInit() {
 
-  this.sub = this._auth.appUser$.subscribe((userApp) => (this.userApp = userApp));  
+  this.sub = this._auth.user$.subscribe((user) => (this.user = user));  
 
   // Get anime Info from the local storage
    this.anime = localStorage.getItem("currentAnime");   

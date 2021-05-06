@@ -1,65 +1,49 @@
+/*  Mobile first  */
+
 /* ============= Search Section ============== */
 #search {
-  width: 60px; 
-  width: 400px; 
-  margin: 20px auto;    
-  background-color: transparent;
+  width: 90%;
   transition: all 400ms linear 100ms;
   cursor: pointer;
-}
-
-#search:hover{
-  width: 500px;
+  position: absolute;
+  background-color: transparent;
+  top: 400px;
+  left: 5%;
+  z-index: 0;
 }
 
 /*================== Main ====================== */
 main {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
 }
 
 /*================== Sections ====================== */
 #lastAdded,
-#trending-list {      
-  padding: 40px;  
+#trending-list {
+  padding: 10px;
 }
 
-.element {
-  pointer-events: none;
-}
-
-#lastAdded{
-  min-height: 100vh;
-}
-
-.card:hover .play-button {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4rem;
-  color: rgba(255, 255, 255, 0.7);
-  z-index: 1;
-}
-
-.icon:hover{
-  color: rgb(206, 206, 206);
+.section-header .title {
+  font-size: 1.2rem;
 }
 
 /*================ Trending Section ==================*/
-.container{
-  height: 100%;
-  width: 100%;
+.container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;    
+  align-items: center;
+}
+
+.icon {
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .slide {
-  width: 100%;
-  height: 400px;
+  height: calc(100vw);
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -71,25 +55,20 @@ main {
   display: none;
 }
 
-.slide .card {    
+.slide .card {
   height: 100%;
   width: 100%;
-  margin-right: 20px;
+  margin-right: 0px;
   display: inline-block;
 }
 
-.slide .card-title {
+.slide .card-title span {
   display: block;
-  word-wrap: break-word;
+  word-wrap: break;
   overflow: hidden;
-}
-
-.slide .sub-title {  
-  border: none;
-  top: 70%;
-  left: 50%;  
-  transform: translate(-50%,-0%);  
-  font-size: 2rem;  
+  text-overflow: ellipsis;
+  height: 100%;
+  width: inherit;
 }
 
 .slide .card .card-thumbnail:after {
@@ -108,56 +87,109 @@ main {
 }
 
 #trending-list .icon {
-  padding: 0 20px;
+  padding: 0 10px;
 }
-
 
 /* ========== Last episodes list ========== */
-#lastAdded .next {  
-  padding-left: 30px;
+#lastAdded {
+  min-height: 100vh;
 }
 
-#lastAdded .prev {   
-  padding-right: 30px;
-}
-
-#lastAdded .icon {  
+#lastAdded .icon {
   font-size: 4rem;
 }
 
+#lastAdded .cards {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 10px;
+}
 
-@media screen and (min-width: 756px) {
+/* ========== Last episodes list ========== */
+pagination {
+  padding-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*  Desktop  */
+@media screen and (min-width: 992px) {
   /* ============= Show Box Section ============== */
   #search {
-  position: absolute;
-  right: 50%;
-  top: 75vh;  
-  border-radius: 5px 5px 0px 0px; 
-  }  
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 5px 5px 0px 0px;
+  }
+  /*============== Sections ==============*/
+  #lastAdded,
+  #trending-list {
+    padding: 20px;
+  }
 
-  #search .title {
-    color: #f3f3f3;
-    text-align: left;
-    font-size: 1rem;    
-    font-weight: 400;
-    text-transform: uppercase;    
+  .section-header .title {
+    font-size: 2rem;
+  }
+
+  /*==============Trending Section ==============*/
+  .slide {
+    height: 400px;
+  }
+
+  .icon {
+    padding: 10px;
+    font-size: 3rem;
+  }
+
+  .slide .card {
+    margin-right: 20px;
+  }
+
+  /*==============Last Added Section ==============*/
+  #lastAdded .cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
   }
 }
 
+/*  Tablet  */
+@media screen and (min-width: 587px) {
+  /* ============= Show Box Section ============== */
+  #search {
+    max-width: 800px;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: auto;
+    padding: 40px;
+    border-radius: 5px 5px 0px 0px;
+  }
 
-@media screen and (max-width: 400px) {   
+  /*============== Sections ==============*/
+  main {
+    padding: 0 40px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
 
   #lastAdded,
   #trending-list {
-  padding: 10px;
+    padding: 20px 0;
   }
 
-  #trending-list .slide { 
-    height: 200px;
+  /*==============Trending Section ==============*/
+  .slide {
+    height: 350px;
   }
 
-  #lastAdded .container {
-    padding: 10px;
-    flex-direction: column;
+  .slide .card {
+    max-width: 300px;
+  }
+
+  /*==============Last Added Section ==============*/
+  #lastAdded .cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
   }
 }

@@ -8,10 +8,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthGuardService {
-  constructor(private _auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
-  canActivate(route, state: RouterStateSnapshot) {
-    return this._auth.user$.pipe(
+  canActivate(state: RouterStateSnapshot) {
+    return this.auth.userFire$.pipe(
       map((user) => {
         if (user) return true;
         this.router.navigate(["/login"], {

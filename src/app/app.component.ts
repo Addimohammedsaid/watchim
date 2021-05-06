@@ -12,19 +12,19 @@ export class AppComponent {
   title = "RoyalAnime";
 
   constructor(
-    private _auth: AuthService,
-    private _userService: UserService,
-    private _router: Router,
+    private auth: AuthService,
+    private userService: UserService,
+    private router: Router,
     private route: ActivatedRoute
   ) {
-    _auth.user$.subscribe((user) => {
+    auth.userFire$.subscribe((user) => {
       if (!user) return;
 
       let returnUrl = localStorage.getItem("returnUrl");
       if (!returnUrl) return;
 
       localStorage.removeItem("returnUrl");
-      _router.navigateByUrl(returnUrl);
+      router.navigateByUrl(returnUrl);
     });
   }
 }

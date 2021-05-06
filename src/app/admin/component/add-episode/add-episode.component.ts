@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 import { CategoryService } from "./../../../shared/services/category.service";
 import { MovieService } from "./../../../shared/services/movie.service";
 import { Validators } from "@angular/forms";
@@ -21,7 +21,7 @@ export class AddEpisodeComponent implements OnInit {
     anime: new FormControl(""),
     description: new FormControl(""),
     imageUrl: new FormControl(""),
-    streamingUrl: new FormControl(""),    
+    streamingUrl: new FormControl(""),
   });
 
   //
@@ -33,7 +33,7 @@ export class AddEpisodeComponent implements OnInit {
   constructor(
     private _movieService: MovieService,
     private _categoryService: CategoryService,
-    private _router:Router
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -54,7 +54,8 @@ export class AddEpisodeComponent implements OnInit {
   }
 
   addEpisode() {
-    this._movieService.addEpisode(this.episodeForm.value).then((e) => this._router.navigateByUrl("/"));
-    ;
+    this._movieService
+      .addEpisode(this.episodeForm.value)
+      .then((e) => this._router.navigateByUrl("/"));
   }
 }

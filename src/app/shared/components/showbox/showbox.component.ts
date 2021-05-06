@@ -2,7 +2,7 @@ import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-showbox',
+  selector: 'showbox',
   templateUrl: './showbox.component.html',
   styleUrls: ['./showbox.component.css']
 })

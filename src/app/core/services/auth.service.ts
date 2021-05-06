@@ -4,57 +4,74 @@ import * as firebase from "firebase";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { switchMap } from "rxjs/operators";
 import { UserService } from "./user.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { UserModel } from "src/app/shared/models/user.model";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-  user$: Observable<firebase.User>;
+  userFire$: Observable<firebase.User> = this.firebase_auth.authState;
 
   constructor(
-    private _firebase_auth: AngularFireAuth,
-    private _userService: UserService,
-    private _route: ActivatedRoute
-  ) {
-    this.user$ = _firebase_auth.authState;
-  }
+    private firebase_auth: AngularFireAuth,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
+  // create user using email & password
   async createUserWithEmail(email: string, password: string) {
-    return await this._firebase_auth.createUserWithEmailAndPassword(
+    return await this.firebase_auth.createUserWithEmailAndPassword(
       email,
       password
     );
   }
 
+  // login using email and password
   loginWithEmailAndPassword(email: string, password: string) {
-    let returnUrl = this._route.snapshot.queryParamMap.get("returnUrl") || "/";
+    // get current route or get home route
+    let returnUrl = this.route.snapshot.queryParamMap.get("returnUrl") || "/";
+
+    // save the route to local storage
     localStorage.setItem("returnUrl", returnUrl);
 
-    return this._firebase_auth.signInWithEmailAndPassword(email, password);
+    // login using firebase auth
+    return this.firebase_auth.signInWithEmailAndPassword(email, password);
   }
 
+  // login with google
   loginWithGoogle() {
-    let returnUrl = this._route.snapshot.queryParamMap.get("returnUrl") || "/";
+    // get current route or get home route
+    let returnUrl = this.route.snapshot.queryParamMap.get("returnUrl") || "/";
+
+    // save the route to local storage
     localStorage.setItem("returnUrl", returnUrl);
 
-    this._firebase_auth.signInWithRedirect(
+    // login using firebase auth (google)
+    this.firebase_auth.signInWithRedirect(
       new firebase.auth.GoogleAuthProvider()
     );
   }
 
   logout() {
-    localStorage.setItem("returnUrl", "/");
-    this._firebase_auth.signOut();
+    // set the return url
+    const returnUrl = "/";
+
+    // go to returned url
+    this.router.navigateByUrl(returnUrl);
+
+    // user sign out
+    this.firebase_auth.signOut();
   }
 
-  get appUser$() {
-    return this.user$.pipe(
+  get user$(): Observable<UserModel> {
+    return this.userFire$.pipe(
       switchMap((user) => {
         if (user) {
-          return this._userService.getUser(user.uid).valueChanges();
+          return this.userService.getUser(user.uid).valueChanges();
         }
-        return Observable;
+        return [];
       })
     );
   }

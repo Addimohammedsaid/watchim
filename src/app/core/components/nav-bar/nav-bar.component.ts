@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UserApp } from "./../../../shared/models/user.model";
+import { UserModel } from "./../../../shared/models/user.model";
 import { AuthService } from "../../services/auth.service";
 
 @Component({
@@ -8,15 +8,17 @@ import { AuthService } from "../../services/auth.service";
   styleUrls: ["./nav-bar.component.css"],
 })
 export class NavBarComponent implements OnInit {
-  userApp: UserApp;
+  user: UserModel;
 
-  constructor(private _auth: AuthService) {}
+  constructor(private auth: AuthService) {}
 
   async ngOnInit() {
-    this._auth.appUser$.subscribe((userApp) => (this.userApp = userApp));    
+    // subscribe to user data
+    this.auth.user$.subscribe((user) => (this.user = user));
   }
 
+  // logout
   logout() {
-    this._auth.logout();    
+    this.auth.logout();
   }
 }

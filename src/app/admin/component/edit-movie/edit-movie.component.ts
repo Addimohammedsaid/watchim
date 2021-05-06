@@ -47,8 +47,8 @@ ngOnInit() {
   })  
 }
 
-deleteEpisode(){
-  this._movieService.deleteEpisode(this.episode.key).then((e) => this._router.navigateByUrl("/"));;
+deleteMovie(){
+  this._movieService.deleteMovie(this.episode.key).then((e) => this._router.navigateByUrl("/"));;
 }
 
 updateEpisode() {

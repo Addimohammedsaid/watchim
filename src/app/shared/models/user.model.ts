@@ -1,4 +1,4 @@
-export class UserApp {
+export class UserModel {
   key: string;
   username: string;
   email: string;

@@ -1,0 +1,41 @@
+/* Mobile View */
+#contact {
+    display: flex;
+    justify-content: space-around;  
+    background: lightgray;
+    padding: 40px;
+  }
+  
+  #contact .section-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 5px 0;
+    text-transform: uppercase;
+  }
+  
+  #contact .section-body {
+    font-size: 1rem;
+  }
+  
+  #contact form {    
+    width: 100%;
+    max-height: 80px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #contact form input {
+    border-left: 1px solid #6d6c6c;
+    border-top: 1px solid #6d6c6c;
+    border-bottom: 1px solid #6d6c6c;
+    border-radius: 5px 0px 0px 5px;
+  }
+  
+  #contact button {
+    width: 40%;
+    margin: 10px 0;
+  }
+  
+  #contact .btn {
+    border-radius: 0px 5px 5px 0px;
+  }

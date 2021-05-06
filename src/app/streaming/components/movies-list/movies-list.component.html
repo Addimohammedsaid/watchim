@@ -1,39 +1,42 @@
-<app-showbox
-[imageUrl] = "imageUrlShowbox"
-[title] = "titleShowBox"
-[subTitle] = "subTitleShowbox"
-></app-showbox>
-
+<showbox
+  [imageUrl]="imageUrlShowbox"
+  [title]="titleShowBox"
+  [subTitle]="subTitleShowbox"
+></showbox>
 
 <section id="animeList">
   <div class="filter">
-      <ul>
-          <li *ngFor="let l of alphabet"><a>{{l}}</a></li>            
-      </ul>                  
-</div>    
+    <ul>
+      <li *ngFor="let l of alphabet">
+        <a>{{ l }}</a>
+      </li>
+    </ul>
+  </div>
 
-<section id="movieList">    
-
+  <section id="movieList" scrollable (scrollPosition)="scrollHandler($event)">
     <ng-template #loading>
       <app-loading-spin></app-loading-spin>
     </ng-template>
-    
 
-    <div *ngIf="movieList$ | async as movieList ; else loading"> 
-      <div class="bg"></div>   
     <div class="cards">
       <div
-        class="card"        
-        *ngFor="let movie of movieList"
-        [attr.data-tooltip] = "movie.description"                
+        class="card"
+        *ngFor="let movie of page.data | async"
+        [attr.data-tooltip]="movie.description"
         (click)="passEpisode(movie)"
       >
-        <div class="card-thumbnail" [routerLink]="['/streaming/watch', movie.name]">
-          <img [src]="movie?.imageUrl" [alt]="movie.name" loading="lazy"/>
+        <div
+          class="card-thumbnail"
+          (click)="adsLink()"
+          [routerLink]="['/streaming/watch', movie.name]"
+        >
+          <img [src]="movie?.imageUrl" [alt]="movie.name" loading="lazy" />
         </div>
-        <div class="card-title">{{ movie?.name }}</div>   
-        <div *ngIf="userApp" class="edit" [routerLink]="['/admin/edit/movie']">Edit</div>     
+        <div class="card-title">{{ movie?.name }}</div>
+        <div *ngIf="user" class="edit" [routerLink]="['/admin/edit/movie']">
+          Edit
+        </div>
       </div>
     </div>
-  </div>    
-</section>  
+  </section>
+</section>
